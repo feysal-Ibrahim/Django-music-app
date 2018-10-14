@@ -7,13 +7,14 @@ urlpatterns=[
     # /app/
     url( r'^$' , views.IndexView.as_view( ) , name='index' ) ,
 
-    # /app/register
+    # /app/register/
 
     url( r'^register/$' , views.UserForm.as_view( ) , name='register' ) ,
 
     # /app/<album_id>/
     url( r'^(?P<pk>[0-9]+)/$' , views.DetailView.as_view( ) , name='detail' ) ,
 
+    # /app/song/add/
     url( r'^(?P<album_id>[0-9]+)/song-add/$', views.SongCreate.as_view( ) , name='song-add' ) ,
 
     # /app/album/add/
@@ -22,6 +23,7 @@ urlpatterns=[
     # /app/album/2/
     url( r'album/(?P<pk>[0-9]+)/$' , views.AlbumUpdate.as_view( ) , name='album-update' ) ,
 
+    # /app/song/2/delete
     url( r'song/(?P<pk>[0-9]+)/delete/$' , views.SongDelete.as_view( ) , name='song-delete' ) ,
 
     # /app/album/2/delete
@@ -31,4 +33,4 @@ urlpatterns=[
 ]
 
 if settings.DEBUG:
-    urlpatterns+=static( settings.MEDIA_URL , document_root=settings.MEDIA_ROOT )
+    urlpatterns += static( settings.MEDIA_URL , document_root=settings.MEDIA_ROOT )
