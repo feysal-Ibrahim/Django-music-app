@@ -23,6 +23,11 @@ class AlbumCreate(CreateView):
     model=Album
     template_name = 'music/album_form.html'
     fields = ['artist', 'album_title','genre','album_logo']
+class SongCreate(CreateView):
+    model = Song
+    template_name = 'music/song_form.html'
+    fields = ['album','file_type','song_title','is_favorite']
+
 
 class AlbumUpdate(UpdateView):
     model=Album
@@ -33,6 +38,10 @@ class AlbumDelete(DeleteView):
     model=Album
     success_url = reverse_lazy('index')
 
+
+class SongDelete(DeleteView):
+    model=Song
+    success_url = reverse_lazy('index')
 
 class UserForm(View):
     form_class = UserForm

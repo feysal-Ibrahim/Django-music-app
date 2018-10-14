@@ -29,7 +29,7 @@
 
             <ul class="nav nav-pills" style="margin-bottom: 10px;">
                 <li role="presentation" class="active"><a href="">View All</a></li>
-                <li role="presentation"><a href="">Add New Song</a></li>
+                <li role="presentation"><a href="{% url 'song-add' album.id%}">Add New Song</a></li>
             </ul>
 
             <div class="panel panel-default">
@@ -65,7 +65,7 @@
                                     <a href="" class="btn-favorite"><span class="glyphicon glyphicon-star"></span></a>
                                 </td>
                                 <td>
-                                    <form action="" method="post" style="display: inline;">
+                                    <form action="{% url 'song-delete'  song.id %}" method="post" style="display: inline;">
                                         {% csrf_token %}
                                         <input type="hidden" name="song_id" value="{{ song.id }}" />
                                         <button type="submit" class="btn btn-danger btn-xs">
